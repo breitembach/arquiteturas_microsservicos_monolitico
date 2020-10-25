@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  authService:
-    image: authService:latest
+  monoservice:
+    image: monoservice
     command: npm start 
     restart: always
     networks:
