@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  clientService:
+    image: clientService:latest
+    command: npm start 
+    restart: always
+    networks:
+      - traefik-public
+    
+    environment:
+      - AWS_XRAY_DAEMON_ADDRESS=
+      - DB_URL=
+      - DB_NAME=
+      - DB_USER=
+      - DB_PWD=
+      - DB_HOST=null
+      - DB_PORT=null
+      - API_HOST=localhost
+      - API_PORT=3000
+      - NODE_ENV=production
+      - JWT_SECRET_USER=
+      - JWT_SECRET_MOTORIST=
+      - JWT_SECRET_RESET_PASSWORD=
+      - CIELO_MERCHANTKEY=
+      - CIELO_MERCHANTID=
+      - CIELO_SANDBOX=true
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.bfbackend.rule=Host(`localhost`)"
+        - "traefik.http.routers.bfbackend.entrypoints=web"
+        - "traefik.http.services.bfbackend-service.loadbalancer.server.port=3000"
+
+networks:
+  traefik-public:
+    external: true
+
+      

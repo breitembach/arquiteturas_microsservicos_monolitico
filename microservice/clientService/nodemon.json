@@ -1,0 +1,7 @@
+{
+  "watch": ["src", "swagger.json"],
+  "execMap": {
+    "ts": "sucrase-node src/server.ts"
+  },
+  "ext": "ts"
+}

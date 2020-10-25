@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    // "experimentalDecorators": true,
+    "target": "ES2016",
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "module": "ESNext",
+    // "declaration": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    // "allowUmdGlobalAccess": true,
+    // "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "rootDir": "src",
+    "removeComments": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "importsNotUsedAsValues": "remove",
+    "lib": [
+      "ESNext"
+    ], //"dom"
+    "esModuleInterop": true,
+    "typeRoots": [
+      "./types"
+    ], //  "./node_modules/@types"
+    "importHelpers": true,
+    "rootDirs": [
+      "src/emailTemplates",
+    ],
+    
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts"
+  ],
+}
