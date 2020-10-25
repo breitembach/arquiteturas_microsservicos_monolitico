@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  clientService:
-    image: clientService:latest
+  clientservice:
+    image: clientservice
     command: npm start 
     restart: always
     networks:
@@ -19,7 +19,7 @@ services:
       - API_HOST=localhost
       - API_PORT=3000
       - NODE_ENV=production
-      - JWT_SECRET_USER=
+      - JWT_SECRET_USER=123
       - JWT_SECRET_MOTORIST=
       - JWT_SECRET_RESET_PASSWORD=
       - CIELO_MERCHANTKEY=
@@ -31,9 +31,9 @@ services:
       replicas: 1
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.bfbackend.rule=Host(`localhost`)"
-        - "traefik.http.routers.bfbackend.entrypoints=web"
-        - "traefik.http.services.bfbackend-service.loadbalancer.server.port=3000"
+        - "traefik.http.routers.clientservice.entrypoints=web"
+        - "traefik.http.services.clientservice-service.loadbalancer.server.port=3000"
+        - "traefik.http.routers.clientservice-path.rule=PathPrefix(`/clientes`)"
 
 networks:
   traefik-public:
