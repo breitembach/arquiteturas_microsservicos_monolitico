@@ -19,11 +19,11 @@
 > docker stack deploy <traefik> -c cluster-manager-proxy.yml
 
 ### Construir imagem do serviço
-docker build -t <authservice> .
+> docker build -t <authservice> .
 
 ### Rodar serviços no cluster
 
-docker stack deploy <authservice> -c docker-compose.yml
+> docker stack deploy <authservice> -c docker-compose.yml
 
 
 
