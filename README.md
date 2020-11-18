@@ -15,15 +15,15 @@
 
 > docker network create -d overlay traefik-public
 
-### Start Cluster
-> docker stack deploy traefik -c cluster-manager-proxy.yml
+### Iniciar Cluster com traefik
+> docker stack deploy <traefik> -c cluster-manager-proxy.yml
 
-### build image service
-docker build -t authservice . --no-cache && docker service update authservice_authservice --force
+### Construir imagem do serviço
+docker build -t <authservice> .
 
-### run services in cluster
+### Rodar serviços no cluster
 
-docker stack deploy authservice -c docker-compose.yml
+docker stack deploy <authservice> -c docker-compose.yml
 
 
 
