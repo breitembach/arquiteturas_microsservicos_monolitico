@@ -15,6 +15,9 @@
 
 > docker network create -d overlay traefik-public
 
+### Definir Máquina como cluster
+> docker swarm init --advertise-addr <IP máquina>
+  
 ### Iniciar Cluster com traefik
 > docker stack deploy <traefik> -c cluster-manager-proxy.yml
 
